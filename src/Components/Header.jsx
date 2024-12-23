@@ -1,11 +1,15 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Navbar from "./Navbar";
 import { FaUserAlt } from "react-icons/fa";
 import { FiAlignJustify } from "react-icons/fi";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import { AuthContext } from "./Authprovider";
 
 const Header = () => {
 
     const [menuOpen, setMenuOpen] = useState(false); 
+    
+    const {user,logout} = useContext(AuthContext);
 
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);  
@@ -30,7 +34,14 @@ const Header = () => {
 
             <div className="flex gap-x-2">
                 <FaUserAlt className="mt-4"></FaUserAlt>
-                <button className="btn btn-outline btn-info">Login</button>
+
+                {
+                    user ? (<Link to="/home"><button onClick={logout} className="btn btn-outline btn-info">Logout</button></Link>)
+                    :
+                    (<Link to="/login"><button className="btn btn-outline btn-info">Login</button></Link>)
+                    
+                }
+                
             </div>
             
         </div>
