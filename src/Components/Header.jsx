@@ -4,12 +4,14 @@ import { FaUserAlt } from "react-icons/fa";
 import { FiAlignJustify } from "react-icons/fi";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "./Authprovider";
+import { BsCheckLg } from "react-icons/bs";
 
 const Header = () => {
 
     const [menuOpen, setMenuOpen] = useState(false); 
     
     const {user,logout} = useContext(AuthContext);
+    // console.log(user);
 
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);  
@@ -33,7 +35,18 @@ const Header = () => {
             </div>
 
             <div className="flex gap-x-2">
-                <FaUserAlt className="mt-4"></FaUserAlt>
+                {
+                    user? 
+                    (
+                        <img className="w-16 h-16 rounded-full" src={user.photoURL} 
+                        alt="" 
+                        title={user.displayName}/>
+                        
+                    )
+                    :
+                    (<FaUserAlt className="mt-4"></FaUserAlt>)
+                }
+                
 
                 {
                     user ? (<Link to="/home"><button onClick={logout} className="btn btn-outline btn-info">Logout</button></Link>)
