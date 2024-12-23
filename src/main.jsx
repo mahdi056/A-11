@@ -16,6 +16,7 @@ import Addartifacts from './Components/Addartifacts';
 import Authprovider from './Components/Authprovider';
 import Registration from './Components/Registration';
 import Login from './Components/Login';
+import Artifactdetails from './Components/Artifactdetails';
 
 const router = createBrowserRouter([
   {
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
         path: '/login',
         element: <Login></Login>
       },
+      {
+        path: '/artifactdetails',
+        element: <Artifactdetails></Artifactdetails>
+      }
     ]
   },
 ]);

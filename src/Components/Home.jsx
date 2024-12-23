@@ -7,53 +7,58 @@ import img3 from '../assets/egypt mask.jpg';
 import img4 from '../assets/greek statue.jpg';
 import img5 from '../assets/medical sheild.jpg';
 import img6 from '../assets/mayan.jpg';
+import { useContext } from "react";
+import { Link } from "react-router-dom";
+import { AuthContext } from "./Authprovider";
 
 const Home = () => {
 
+    const { user } = useContext(AuthContext);
+
     const artifacts = [
         {
-          id: 1,
-          name: "Ancient Vase",
-          description: "A beautiful ancient vase from the 15th century.",
-          likeCount: 120,
-          image: img1
+            id: 1,
+            name: "Ancient Vase",
+            description: "A beautiful ancient vase from the 15th century.",
+            likeCount: 120,
+            image: img1
         },
         {
-          id: 2,
-          name: "Roman Sword",
-          description: "A finely crafted Roman sword used in battle.",
-          likeCount: 95,
-          image: img2
+            id: 2,
+            name: "Roman Sword",
+            description: "A finely crafted Roman sword used in battle.",
+            likeCount: 95,
+            image: img2
         },
         {
-          id: 3,
-          name: "Egyptian Mask",
-          description: "An intricate Egyptian mask made of gold.",
-          likeCount: 150,
-          image: img3
+            id: 3,
+            name: "Egyptian Mask",
+            description: "An intricate Egyptian mask made of gold.",
+            likeCount: 150,
+            image: img3
         },
         {
-          id: 4,
-          name: "Greek Statue",
-          description: "A well-preserved Greek marble statue of a god.",
-          likeCount: 80,
-          image: img4
+            id: 4,
+            name: "Greek Statue",
+            description: "A well-preserved Greek marble statue of a god.",
+            likeCount: 80,
+            image: img4
         },
         {
-          id: 5,
-          name: "Medieval Shield",
-          description: "A shield used by medieval knights in combat.",
-          likeCount: 110,
-          image: img5
+            id: 5,
+            name: "Medieval Shield",
+            description: "A shield used by medieval knights in combat.",
+            likeCount: 110,
+            image: img5
         },
         {
-          id: 6,
-          name: "Mayan Artifact",
-          description: "A mysterious artifact from the ancient Mayan civilization.",
-          likeCount: 130,
-          image: img6
+            id: 6,
+            name: "Mayan Artifact",
+            description: "A mysterious artifact from the ancient Mayan civilization.",
+            likeCount: 130,
+            image: img6
         }
-      ];
+    ];
 
     return (
         <div className="mt-8">
@@ -96,7 +101,14 @@ const Home = () => {
                                 <p className="text-gray-600 text-sm">{artifact.description}</p>
                                 <div className="flex justify-between items-center mt-4">
                                     <span className="text-lg font-bold">{artifact.likeCount} Likes</span>
-                                    <button className="btn btn-outline btn-info">View Details</button>
+
+                                    {
+                                        user ?
+                                            (<Link to="/artifactdetails"><button className="btn btn-outline btn-info">View Details</button></Link>)
+                                            :
+                                            (<Link to="/login"><button className="btn btn-outline btn-info">View Details</button></Link>)
+                                    }
+
                                 </div>
                             </div>
                         </div>
@@ -104,11 +116,17 @@ const Home = () => {
                 </div>
             </div>
 
+            {/* See all button */}
+
+            <div className="flex justify-center mt-12">
+                <Link to="/allartifacts"><button className="btn btn-outline btn-info px-12">See All</button></Link>
+            </div>
+
             {/* About Us Section */}
             <div className="mt-16 px-4 w-4/5 mx-auto text-center shadow-2xl shadow-gray-400">
                 <h2 className="text-4xl font-bold mb-4 text-blue-500">About Us</h2>
                 <p className="text-gray-700 text-lg">
-                    Our mission is to preserve history and bring the stories of ancient civilizations to life. 
+                    Our mission is to preserve history and bring the stories of ancient civilizations to life.
                     Explore artifacts from around the world and gain insight into our shared cultural heritage.
                 </p>
             </div>
