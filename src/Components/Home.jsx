@@ -2,8 +2,10 @@
 
 const Home = () => {
     return (
-        <div>
-            This is home page 
+        <div className="mt-8">
+
+            
+            
         </div>
     );
 };
