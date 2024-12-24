@@ -62,6 +62,8 @@ const Home = () => {
 
     return (
         <div className="mt-8">
+
+            
             {/* Slider */}
             <div className="mx-auto flex justify-center">
                 <div className="carousel w-4/5">
