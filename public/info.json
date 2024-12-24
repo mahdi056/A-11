@@ -1,0 +1,50 @@
+[
+    {
+      "id": "1",
+      "name": "Ancient Vase",
+      "image": "https://i.ibb.co.com/D4FZt0C/antient-vase.jpg",
+      "type": "Pottery",
+      "description": "A beautifully crafted vase from ancient times, showcasing intricate designs.",
+      "present_location": "National Archaeological Museum, Athens"
+    },
+    {
+      "id": "2",
+      "name": "Roman Sword",
+      "image": "https://i.ibb.co.com/gV4SVLd/roman-sword.jpg",
+      "type": "Weapon",
+      "description": "A well-preserved Roman gladius used by soldiers in the Roman Empire.",
+      "present_location": "British Museum, London"
+    },
+    {
+      "id": "3",
+      "name": "Egyptian Mask",
+      "image": "https://i.ibb.co.com/df39CGh/egypt-mask.jpg",
+      "type": "Funerary Mask",
+      "description": "An ornate funerary mask used in ancient Egyptian burial rituals.",
+      "present_location": "Egyptian Museum, Cairo"
+    },
+    {
+      "id": "4",
+      "name": "Greek Statue",
+      "image": "https://i.ibb.co.com/fYzC1xr/greek-statue.jpg",
+      "type": "Sculpture",
+      "description": "A classical Greek statue depicting a deity or hero.",
+      "present_location": "Louvre Museum, Paris"
+    },
+    {
+      "id": "5",
+      "name": "Medieval Shield",
+      "image": "https://i.ibb.co.com/chSnRZn/medical-sheild.jpg",
+      "type": "Armor",
+      "description": "A shield used by knights during the medieval period, featuring heraldic designs.",
+      "present_location": "Royal Armouries Museum, Leeds"
+    },
+    {
+      "id": "6",
+      "name": "Mayan Artifact",
+      "image": "https://i.ibb.co.com/9W9Jw5r/mayan.jpg",
+      "type": "Relic",
+      "description": "An artifact from the Mayan civilization, rich in cultural and historical significance.",
+      "present_location": "National Museum of Anthropology, Mexico City"
+    }
+]
