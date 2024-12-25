@@ -15,6 +15,9 @@ const Navbar = () => {
             {
                 user &&  <NavLink to="/addartifacts">Add Artifacts</NavLink>
             }
+            {
+                user && <NavLink to="/liked-artifacts">Liked Artifact</NavLink>
+            }
                
            
             

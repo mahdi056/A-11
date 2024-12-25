@@ -8,13 +8,13 @@ import { BsCheckLg } from "react-icons/bs";
 
 const Header = () => {
 
-    const [menuOpen, setMenuOpen] = useState(false); 
-    
-    const {user,logout} = useContext(AuthContext);
+    const [menuOpen, setMenuOpen] = useState(false);
+
+    const { user, logout, loading } = useContext(AuthContext);
     // console.log(user);
 
     const toggleMenu = () => {
-        setMenuOpen(!menuOpen);  
+        setMenuOpen(!menuOpen);
     };
 
     return (
@@ -35,28 +35,29 @@ const Header = () => {
             </div>
 
             <div className="flex gap-x-2">
-                {
-                    user? 
-                    (
-                        <img className="w-16 h-16 rounded-full" src={user.photoURL} 
-                        alt="" 
-                        title={user.displayName}/>
-                        
-                    )
-                    :
-                    (<FaUserAlt className="mt-4"></FaUserAlt>)
-                }
-                
+                {loading ? (
+                    <div className="loading loading-bars"></div>
+                ) : user ? (
+                    <img
+                        className="w-16 h-16 rounded-full"
+                        src={user.photoURL}
+                        alt=""
+                        title={user.displayName}
+                    />
+                ) : (
+                    <FaUserAlt className="mt-4" />
+                )}
 
                 {
                     user ? (<Link to="/home"><button onClick={logout} className="btn btn-outline btn-info">Logout</button></Link>)
-                    :
-                    (<Link to="/login"><button className="btn btn-outline btn-info">Login</button></Link>)
-                    
+                        :
+                        (<Link to="/login"><button className="btn btn-outline btn-info">Login</button></Link>)
+
                 }
                 
+
             </div>
-            
+
         </div>
     );
 };

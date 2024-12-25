@@ -5,7 +5,8 @@
       "image": "https://i.ibb.co.com/D4FZt0C/antient-vase.jpg",
       "type": "Pottery",
       "description": "A beautifully crafted vase from ancient times, showcasing intricate designs.",
-      "present_location": "National Archaeological Museum, Athens"
+      "present_location": "National Archaeological Museum, Athens",
+      "likes": "130"
     },
     {
       "id": "2",
@@ -13,7 +14,8 @@
       "image": "https://i.ibb.co.com/gV4SVLd/roman-sword.jpg",
       "type": "Weapon",
       "description": "A well-preserved Roman gladius used by soldiers in the Roman Empire.",
-      "present_location": "British Museum, London"
+      "present_location": "British Museum, London",
+      "likes": "150"
     },
     {
       "id": "3",
@@ -21,7 +23,8 @@
       "image": "https://i.ibb.co.com/df39CGh/egypt-mask.jpg",
       "type": "Funerary Mask",
       "description": "An ornate funerary mask used in ancient Egyptian burial rituals.",
-      "present_location": "Egyptian Museum, Cairo"
+      "present_location": "Egyptian Museum, Cairo",
+      "likes": "230"
     },
     {
       "id": "4",
@@ -29,7 +32,8 @@
       "image": "https://i.ibb.co.com/fYzC1xr/greek-statue.jpg",
       "type": "Sculpture",
       "description": "A classical Greek statue depicting a deity or hero.",
-      "present_location": "Louvre Museum, Paris"
+      "present_location": "Louvre Museum, Paris",
+      "likes": "180"
     },
     {
       "id": "5",
@@ -37,7 +41,8 @@
       "image": "https://i.ibb.co.com/chSnRZn/medical-sheild.jpg",
       "type": "Armor",
       "description": "A shield used by knights during the medieval period, featuring heraldic designs.",
-      "present_location": "Royal Armouries Museum, Leeds"
+      "present_location": "Royal Armouries Museum, Leeds",
+      "likes": "330"
     },
     {
       "id": "6",
@@ -45,6 +50,7 @@
       "image": "https://i.ibb.co.com/9W9Jw5r/mayan.jpg",
       "type": "Relic",
       "description": "An artifact from the Mayan civilization, rich in cultural and historical significance.",
-      "present_location": "National Museum of Anthropology, Mexico City"
+      "present_location": "National Museum of Anthropology, Mexico City",
+      "likes": "440"
     }
 ]

@@ -1,39 +1,62 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "./Authprovider";
 
 const AllArtifacts = () => {
-  const [artifacts, setArtifacts] = useState([]);
 
-  useEffect(() => {
-    // Fetch artifact data
-    fetch("/info.json")
-      .then((response) => response.json())
-      .then((data) => setArtifacts(data))
-      .catch((error) => console.error("Error loading artifacts:", error));
-  }, []);
+  const {user} = useContext(AuthContext);
+
+  const [artifacts, setArtifacts] = useState([]);
+    const navigate = useNavigate();
+  
+    useEffect(() => {
+      fetch("http://localhost:5000/artifacts")
+        .then((res) => res.json())
+        .then((data) => setArtifacts(data))
+        .catch((error) => console.error(error));
+    }, []);
+  
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 p-4">
-      {artifacts.map((artifact) => (
-        <div
-          key={artifact.id}
-          className="card shadow-lg p-4 bg-white rounded-lg"
-        >
-          <img
-            src={artifact.image}
-            alt={artifact.name}
-            className="h-40 w-full object-cover rounded-lg"
-          />
-          <h2 className="text-xl font-bold mt-4">{artifact.name}</h2>
-          <p className="text-gray-700">Type: {artifact.type}</p>
-          <p className="text-gray-700">
-            Location: {artifact.present_location}
-          </p>
-          <Link to={`/artifactdetails/${artifact.id}`}>
-            <button className="btn btn-info mt-4">View Details</button>
-          </Link>
-        </div>
-      ))}
+    <div>
+
+<div className="p-8">
+      <h2 className="text-3xl font-bold mb-4 text-center">All Artifacts</h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {artifacts.map((artifact) => (
+          <div key={artifact._id} className="p-4 bg-white shadow-lg rounded-lg">
+            <img
+              src={artifact.image}
+              alt={artifact.name}
+              className="w-full h-40 object-cover rounded-lg"
+            />
+            <h3 className="text-xl font-semibold mt-2">{artifact.name}</h3>
+            <p className="text-gray-700 mt-2">{artifact.historicalContext}</p>
+            <p className="text-gray-600 mt-2">
+              <strong>Likes:</strong> {artifact.likeCount}
+            </p>
+            {
+                user?
+                ( <button
+                    className="btn btn-outline btn-info mt-4"
+                    onClick={() => navigate(`/artifact-details/${artifact._id}`)}
+                  >
+                    View Details
+                  </button>)
+                :
+                ( <button
+                    className="btn btn-outline btn-info mt-4"
+                    onClick={() => navigate('/login')}
+                  >
+                    View Details
+                  </button>)
+            }
+           
+          </div>
+        ))}
+      </div>
+    </div>
+      
     </div>
   );
 };

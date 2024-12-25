@@ -17,6 +17,7 @@ import Authprovider from './Components/Authprovider';
 import Registration from './Components/Registration';
 import Login from './Components/Login';
 import Artifactdetails from './Components/Artifactdetails';
+import LikedArtifacts from './Components/LikedArtifacts';
 
 const router = createBrowserRouter([
   {
@@ -49,9 +50,16 @@ const router = createBrowserRouter([
         element: <Login></Login>
       },
       {
-        path: '/artifactdetails/:id',
-        element: <Artifactdetails></Artifactdetails>
-      }
+        path: '/artifact-details/:id',
+        element: <Artifactdetails></Artifactdetails>,
+        
+      },
+      {
+        path: "/liked-artifacts", 
+        element: <LikedArtifacts></LikedArtifacts>,
+      },
+      
+
     ]
   },
 ]);

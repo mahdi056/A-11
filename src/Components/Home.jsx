@@ -1,69 +1,30 @@
 import banner1 from "../assets/banner1.webp";
 import banner2 from "../assets/banner2.webp";
 import banner3 from "../assets/banner3.jpg";
-import img1 from '../assets/antient vase.jpg';
-import img2 from '../assets/roman sword.jpg';
-import img3 from '../assets/egypt mask.jpg';
-import img4 from '../assets/greek statue.jpg';
-import img5 from '../assets/medical sheild.jpg';
-import img6 from '../assets/mayan.jpg';
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "./Authprovider";
+import { useEffect, useState } from "react";
+
 
 const Home = () => {
 
     const { user } = useContext(AuthContext);
 
-    const artifacts = [
-        {
-            id: 1,
-            name: "Ancient Vase",
-            description: "A beautiful ancient vase from the 15th century.",
-            likeCount: 120,
-            image: img1
-        },
-        {
-            id: 2,
-            name: "Roman Sword",
-            description: "A finely crafted Roman sword used in battle.",
-            likeCount: 95,
-            image: img2
-        },
-        {
-            id: 3,
-            name: "Egyptian Mask",
-            description: "An intricate Egyptian mask made of gold.",
-            likeCount: 150,
-            image: img3
-        },
-        {
-            id: 4,
-            name: "Greek Statue",
-            description: "A well-preserved Greek marble statue of a god.",
-            likeCount: 80,
-            image: img4
-        },
-        {
-            id: 5,
-            name: "Medieval Shield",
-            description: "A shield used by medieval knights in combat.",
-            likeCount: 110,
-            image: img5
-        },
-        {
-            id: 6,
-            name: "Mayan Artifact",
-            description: "A mysterious artifact from the ancient Mayan civilization.",
-            likeCount: 130,
-            image: img6
-        }
-    ];
+    const [artifacts, setArtifacts] = useState([]);
+    const navigate = useNavigate();
+  
+    useEffect(() => {
+      fetch("http://localhost:5000/artifacts")
+        .then((res) => res.json())
+        .then((data) => setArtifacts(data))
+        .catch((error) => console.error(error));
+    }, []);
 
     return (
         <div className="mt-8">
 
-            
+
             {/* Slider */}
             <div className="mx-auto flex justify-center">
                 <div className="carousel w-4/5">
@@ -92,32 +53,42 @@ const Home = () => {
             </div>
 
             {/* Featured Artifacts */}
-            <div className="mt-12 px-4 w-4/5 mx-auto">
-                <h2 className="text-5xl font-bold text-center mb-6 text-blue-500">Featured Artifacts</h2>
-                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6">
-                    {artifacts.map((artifact) => (
-                        <div key={artifact.id} className="card bg-white shadow-md rounded-lg overflow-hidden">
-                            <img src={artifact.image} alt="" className="w-full h-48" />
-                            <div className="p-4">
-                                <h3 className="text-xl font-semibold">{artifact.name}</h3>
-                                <p className="text-gray-600 text-sm">{artifact.description}</p>
-                                <div className="flex justify-between items-center mt-4">
-                                    <span className="text-lg font-bold">{artifact.likeCount} Likes</span>
-
-                                    {
-                                        user ?
-                                            (<Link to="/artifactdetails"><button className="btn btn-outline btn-info">View Details</button></Link>)
-                                            :
-                                            (<Link to="/login"><button className="btn btn-outline btn-info">View Details</button></Link>)
-                                    }
-
-                                </div>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </div>
-
+            <div className="p-8">
+      <h2 className="text-3xl font-bold mb-4 text-center">Featured Artifacts</h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {artifacts.map((artifact) => (
+          <div key={artifact._id} className="p-4 bg-white shadow-lg rounded-lg">
+            <img
+              src={artifact.image}
+              alt={artifact.name}
+              className="w-full h-40 object-cover rounded-lg"
+            />
+            <h3 className="text-xl font-semibold mt-2">{artifact.name}</h3>
+            <p className="text-gray-700 mt-2">{artifact.historicalContext}</p>
+            <p className="text-gray-600 mt-2">
+              <strong>Likes:</strong> {artifact.likeCount}
+            </p>
+            {
+                user?
+                ( <button
+                    className="btn btn-outline btn-info mt-4"
+                    onClick={() => navigate(`/artifact-details/${artifact._id}`)}
+                  >
+                    View Details
+                  </button>)
+                :
+                ( <button
+                    className="btn btn-outline btn-info mt-4"
+                    onClick={() => navigate('/login')}
+                  >
+                    View Details
+                  </button>)
+            }
+           
+          </div>
+        ))}
+      </div>
+    </div>
             {/* See all button */}
 
             <div className="flex justify-center mt-12">
