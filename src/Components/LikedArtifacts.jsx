@@ -10,6 +10,11 @@ const LikedArtifacts = () => {
       .catch((error) => console.error(error));
   }, []);
 
+   // for title
+   useEffect(()=> {
+    document.title= "Likes Artifacts"
+},[]);
+
   return (
     <div className="p-8">
       <h2 className="text-3xl font-bold mb-4 text-center">Liked Artifacts</h2>

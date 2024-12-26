@@ -23,6 +23,10 @@ const Home = () => {
         .then((data) => setArtifacts(data))
         .catch((error) => console.error(error));
     }, []);
+    // for title
+    useEffect(()=> {
+        document.title= "Artifact Atlas"
+    },[])
 
     return (
         <div className="mt-8">

@@ -15,6 +15,11 @@ const AllArtifacts = () => {
         .then((data) => setArtifacts(data))
         .catch((error) => console.error(error));
     }, []);
+
+     // for title
+     useEffect(()=> {
+      document.title= "All Artifacts"
+  },[])
   
 
   return (

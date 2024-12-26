@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -33,6 +33,12 @@ const Login = () => {
             });
           });
     }
+
+     // for title
+        useEffect(()=> {
+            document.title= "Login"
+        },[]);
+
     return (
         <div>
                 {/* <ToastContainer></ToastContainer> */}

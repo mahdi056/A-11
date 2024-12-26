@@ -27,7 +27,8 @@ const ArtifactDetails = () => {
   };
 
   if (!artifact) return <p>Loading...</p>;
-  
+
+ 
   return (
     <div>
 

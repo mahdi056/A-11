@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaGoogle } from "react-icons/fa";
 import { AuthContext } from './Authprovider';
@@ -79,6 +79,11 @@ const Registration = () => {
         });
 
     }
+
+     // for title
+        useEffect(()=> {
+            document.title= "Registration"
+        },[])
 
 
     return (

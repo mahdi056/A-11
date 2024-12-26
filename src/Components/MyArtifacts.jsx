@@ -91,6 +91,7 @@ const MyArtifacts = () => {
   if (artifacts.length === 0)
     return <p className="text-center">No artifacts found. Add your first artifact!</p>;
 
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-4">
       {artifacts.map((artifact) => (

@@ -1,5 +1,5 @@
 
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -70,6 +70,11 @@ const AddArtifact = () => {
             toast.error("Failed to add artifact.");
         }
     };
+
+     // for title
+        useEffect(()=> {
+            document.title= "Add Artifacts"
+        },[])
 
     return (
         <div className="container mx-auto p-6">
