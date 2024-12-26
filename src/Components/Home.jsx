@@ -66,7 +66,7 @@ const Home = () => {
           <div key={artifact._id} className="p-4 bg-white shadow-lg rounded-lg">
             <img
               src={artifact.image}
-              alt={artifact.name}
+              alt=""
               className="w-full h-40 object-cover rounded-lg"
             />
             <h3 className="text-xl font-semibold mt-2">{artifact.name}</h3>

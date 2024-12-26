@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaGoogle } from "react-icons/fa";
 import { AuthContext } from './Authprovider';
+import { toast } from 'react-toastify';
 
 const Registration = () => {
 
@@ -63,7 +64,11 @@ const Registration = () => {
         
         .then(() => {
             setUser({ ...user, displayName:name, photoURL: photourl });
-           navigate("/home");
+            toast.success("Registration Successfull",{
+                position: 'top-center',
+                autoClose: 2000
+            })
+            setTimeout(() => navigate("/home"), 2000); 
         })
         .catch((error) => {
             const errorCode = error.code;

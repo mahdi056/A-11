@@ -2,8 +2,6 @@ import { useEffect, useState } from "react";
 import { getAuth } from "firebase/auth";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import Swal from "sweetalert2";
 
 const MyArtifacts = () => {
@@ -39,7 +37,7 @@ const MyArtifacts = () => {
 
   const handleDelete = async (artifactId) => {
     const userId = user?.uid;
-  
+
     if (!userId) {
       Swal.fire({
         icon: "error",
@@ -48,7 +46,7 @@ const MyArtifacts = () => {
       });
       return;
     }
-  
+
     // For showing sweetalert confirmation
     Swal.fire({
       title: "Are you sure?",
@@ -64,13 +62,13 @@ const MyArtifacts = () => {
           await axios.delete(`http://localhost:5000/delete-artifact/${artifactId}`, {
             data: { userId },
           });
-  
+
           Swal.fire({
             icon: "success",
             title: "Deleted!",
             text: "Your artifact has been deleted.",
           });
-  
+          navigate("/allartifacts")
           setArtifacts((prev) => prev.filter((artifact) => artifact._id !== artifactId));
         } catch (error) {
           console.error("Error deleting artifact:", error);
@@ -84,7 +82,7 @@ const MyArtifacts = () => {
     });
   };
 
- 
+
 
 
 
@@ -95,11 +93,15 @@ const MyArtifacts = () => {
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-4">
-      <ToastContainer></ToastContainer>
       {artifacts.map((artifact) => (
-        <div key={artifact._id}>
+        <div className="shadow-xl shadow-gray-600 border-2" key={artifact._id}>
           <img src={artifact.image} alt="" />
           <h3>{artifact.name}</h3>
+          <p className="text-gray-700 mt-2">{artifact.historicalContext}</p>
+          <p className="text-gray-700 mt-2"><span className="font-bold">Created at: </span>{artifact.createdAt}</p>
+          <p className="text-gray-700 mt-2"><span className="font-bold">Discovered At: </span>{artifact.discoveredAt}</p>
+          <p className="text-gray-700 mt-2"><span className="font-bold">Discovered By: </span>{artifact.discoveredBy}</p>
+          <p className="text-gray-700 mt-2"><span className="font-bold">Present Location: </span>{artifact.presentLocation}</p>
 
           <div className="flex mt-4 gap-x-2">
             <button className="btn btn-info" onClick={() => handleUpdate(artifact)}>Update</button>

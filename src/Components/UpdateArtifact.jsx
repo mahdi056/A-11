@@ -14,6 +14,10 @@ const UpdateArtifact = () => {
     image: "",
     type: "",
     historicalContext: "",
+    createdAt: "",
+    discoveredAt: "",
+    discoveredBy: "",
+    presentLocation:""
     
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -106,6 +110,52 @@ const UpdateArtifact = () => {
             className="input input-bordered w-full"
           />
         </div>
+        <div className="mb-4">
+          <label className="block font-bold mb-2">Created At</label>
+          <input
+            type="text"
+            name="createdAt"
+            value={formData.createdAt || ""}
+            onChange={handleChange}
+            required
+            className="input input-bordered w-full"
+          />
+        </div>
+        <div className="mb-4">
+          <label className="block font-bold mb-2">Discovered At</label>
+          <input
+            type="text"
+            name="discoveredAt"
+            value={formData.discoveredAt || ""}
+            onChange={handleChange}
+            required
+            className="input input-bordered w-full"
+          />
+        </div>
+        <div className="mb-4">
+          <label className="block font-bold mb-2">Discovered By</label>
+          <input
+            type="text"
+            name="discoveredBy"
+            value={formData.discoveredBy || ""}
+            onChange={handleChange}
+            required
+            className="input input-bordered w-full"
+          />
+        </div>
+        <div className="mb-4">
+          <label className="block font-bold mb-2">Present Location</label>
+          <input
+            type="text"
+            name="presentLocation"
+            value={formData.presentLocation || ""}
+            onChange={handleChange}
+            required
+            className="input input-bordered w-full"
+          />
+        </div>
+
+
         <button type="submit" className="btn btn-info w-full" disabled={isSubmitting}>
           {isSubmitting ? "Updating..." : "Update Artifact"}
         </button>

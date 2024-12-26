@@ -39,10 +39,10 @@ const ArtifactDetails = () => {
       />
       <h1 className="text-3xl font-bold mt-4">{artifact.name}</h1>
       <p className="text-gray-700 mt-2">{artifact.historicalContext}</p>
-      <p className="text-gray-700 mt-2">Created at:{artifact.createdAt}</p>
-      <p className="text-gray-700 mt-2">Discovered at:{artifact.discoveredAt}</p>
-      <p className="text-gray-700 mt-2">Discovered By:{artifact.discoveredBy}</p>
-      <p className="text-gray-700 mt-2">Present Location:{artifact.presentLocation}</p>
+      <p className="text-gray-700 mt-2"><span className="font-bold">Created at: </span>{artifact.createdAt}</p>
+      <p className="text-gray-700 mt-2"><span className="font-bold">Discovered At: </span>{artifact.discoveredAt}</p>
+      <p className="text-gray-700 mt-2"><span className="font-bold">Discovered By: </span>{artifact.discoveredBy}</p>
+      <p className="text-gray-700 mt-2"><span className="font-bold">Present Location: </span>{artifact.presentLocation}</p>
       <p className="text-gray-700 mt-2">
         <strong>Likes:</strong> {artifact.likeCount}
       </p>
