@@ -18,6 +18,8 @@ import Registration from './Components/Registration';
 import Login from './Components/Login';
 import Artifactdetails from './Components/Artifactdetails';
 import LikedArtifacts from './Components/LikedArtifacts';
+import MyArtifacts from './Components/MyArtifacts';
+import UpdateArtifact from './Components/UpdateArtifact';
 
 const router = createBrowserRouter([
   {
@@ -58,7 +60,14 @@ const router = createBrowserRouter([
         path: "/liked-artifacts", 
         element: <LikedArtifacts></LikedArtifacts>,
       },
-      
+      {
+        path:'/my-artifacts',
+        element: <MyArtifacts></MyArtifacts>
+      },
+      {
+        path: '/update-artifact/:id',
+        element: <UpdateArtifact></UpdateArtifact>
+      }
 
     ]
   },

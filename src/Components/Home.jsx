@@ -5,12 +5,15 @@ import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "./Authprovider";
 import { useEffect, useState } from "react";
+import { getAuth } from "firebase/auth";
 
 
 const Home = () => {
 
     const { user } = useContext(AuthContext);
-
+    // const auth = getAuth();
+    // const users = auth.currentUser;
+    // console.log(users.uid);
     const [artifacts, setArtifacts] = useState([]);
     const navigate = useNavigate();
   
@@ -24,9 +27,12 @@ const Home = () => {
     return (
         <div className="mt-8">
 
+        
+
 
             {/* Slider */}
             <div className="mx-auto flex justify-center">
+                
                 <div className="carousel w-4/5">
                     <div id="slide1" className="carousel-item relative w-full">
                         <img src={banner1} className="w-full object-cover" />

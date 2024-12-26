@@ -4,11 +4,15 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import { AuthContext } from "./Authprovider";
+import { getAuth } from "firebase/auth";
 
 const AddArtifact = () => {
 
     const { user } = useContext(AuthContext);
-    // console.log(user);
+    const auth = getAuth();
+    const userid = auth.currentUser.uid;
+    
+    console.log(userid);
 
     const [formData, setFormData] = useState({
 
@@ -31,12 +35,20 @@ const AddArtifact = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        if (!user) {
+            toast.error("You must be logged in to add an artifact.");
+            return;
+          }
+          
+
+        const artifactData = { ...formData, userId: userid }; 
+      
         const response = await fetch("http://localhost:5000/add-artifact", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify(formData),
+            body: JSON.stringify(artifactData),
         });
 
         if (response.ok) {

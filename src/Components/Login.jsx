@@ -32,6 +32,7 @@ const Login = () => {
         <div>
                 {/* <ToastContainer></ToastContainer> */}
             <div className="card bg-base-100 w-full mx-auto max-w-sm shrink-0 shadow-2xl">
+                <h2 className="text-2xl font-bold">Please Login to Explore</h2>
                 <form onSubmit={handlesubmit} className="card-body">
                     <div className="form-control">
                         <label className="label">

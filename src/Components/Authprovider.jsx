@@ -55,7 +55,7 @@ const Authprovider = ({children}) => {
                 setUser({
                     displayName: currentUser.displayName,
                     email: currentUser.email,
-                    photoUrl: currentUser.photoURL
+                    
                 });
             } else {
                 setUser(null);
