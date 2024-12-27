@@ -9,6 +9,9 @@ import { BsCheckLg } from "react-icons/bs";
 const Header = () => {
 
     const [menuOpen, setMenuOpen] = useState(false);
+    const [showMenu, setShowMenu] = useState(false);
+
+    const togglenav = () => setShowMenu((prev) => !prev);
 
     const { user, logout, loading } = useContext(AuthContext);
     // console.log(user);
@@ -26,13 +29,15 @@ const Header = () => {
 
             <div className="md:hidden" >
                 <FiAlignJustify onClick={toggleMenu} className="cursor-pointer text-sm"></FiAlignJustify>
-            </div>
+           
+           </div>
 
 
 
-            <div className={`${menuOpen ? 'flex flex-col' : 'hidden'} md:block`}>
+            <div className={`${menuOpen ? 'flex border-2 lg:border-0' : 'hidden'} md:block`}>
                 <Navbar></Navbar>
             </div>
+           
 
             <div className="flex gap-x-2">
                 {loading ? (
@@ -48,13 +53,43 @@ const Header = () => {
                     <FaUserAlt className="mt-4" />
                 )}
 
-                {
-                    user ? (<Link to="/home"><button onClick={logout} className="btn btn-outline btn-info">Logout</button></Link>)
-                        :
-                        (<Link to="/login"><button className="btn btn-outline btn-info">Login</button></Link>)
+                {user ? (
+                    <div className="relative flex flex-col">
+                        <button
+                            className="btn btn-outline btn-info w-20"
+                            onClick={togglenav}
+                        >
+                            My Profile
+                        </button>
+                        {showMenu && (
+                            <div className="absolute top-10 left-0 bg-white shadow-md rounded p-2 flex flex-col gap-y-2">
+                                <Link to="/my-artifacts">
+                                    <button className="btn btn-outline btn-info">
+                                        My Artifacts
+                                    </button>
+                                </Link>
+                                <Link to="/liked-artifacts">
+                                    <button className="btn btn-outline btn-info">
+                                        Liked Artifacts
+                                    </button>
+                                </Link>
+                            </div>
+                        )}
+                        <Link to="/home">
+                            <button
+                                onClick={logout}
+                                className="btn btn-outline btn-info w-20 mt-2"
+                            >
+                                Logout
+                            </button>
+                        </Link>
+                    </div>
+                ) : (
+                    <Link to="/login">
+                        <button className="btn btn-outline btn-info">Login</button>
+                    </Link>
+                )}
 
-                }
-                
 
             </div>
 

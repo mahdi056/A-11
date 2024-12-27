@@ -79,7 +79,7 @@ const AddArtifact = () => {
     return (
         <div className="container mx-auto p-6">
             <ToastContainer></ToastContainer>
-            <h1 className="text-3xl font-bold text-center mb-6">Add Artifact</h1>
+            <h1 className="text-3xl font-bold text-center mb-6">Add Your Artifact Here</h1>
             
             <form onSubmit={handleSubmit} className="max-w-lg mx-auto bg-white shadow-md rounded p-6">
                 <div className="mb-4">

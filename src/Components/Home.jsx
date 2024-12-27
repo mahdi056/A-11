@@ -29,7 +29,7 @@ const Home = () => {
     },[])
 
     return (
-        <div className="mt-8">
+        <div className="mt-12">
 
         
 
@@ -67,7 +67,7 @@ const Home = () => {
       <h2 className="text-3xl font-bold mb-4 text-center">Featured Artifacts</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {artifacts.map((artifact) => (
-          <div key={artifact._id} className="p-4 bg-white shadow-lg rounded-lg">
+          <div key={artifact._id} className="p-4 bg-white shadow-xl shadow-gray-600 rounded-lg">
             <img
               src={artifact.image}
               alt=""
