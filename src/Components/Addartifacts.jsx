@@ -12,7 +12,7 @@ const AddArtifact = () => {
     const auth = getAuth();
     const userid = auth.currentUser.uid;
     
-    console.log(userid);
+    // console.log(userid);
 
     const [formData, setFormData] = useState({
 
@@ -43,7 +43,7 @@ const AddArtifact = () => {
 
         const artifactData = { ...formData, userId: userid }; 
       
-        const response = await fetch("http://localhost:5000/add-artifact", {
+        const response = await fetch("https://a-11-server-site.vercel.app/add-artifact", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

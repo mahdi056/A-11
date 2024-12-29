@@ -4,7 +4,7 @@ const LikedArtifacts = () => {
   const [likedArtifacts, setLikedArtifacts] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/liked-artifacts")
+    fetch("https://a-11-server-site.vercel.app/liked-artifacts")
       .then((res) => res.json())
       .then((data) => setLikedArtifacts(data))
       .catch((error) => console.error(error));

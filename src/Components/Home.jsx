@@ -5,7 +5,7 @@ import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "./Authprovider";
 import { useEffect, useState } from "react";
-import { getAuth } from "firebase/auth";
+
 
 
 const Home = () => {
@@ -18,7 +18,7 @@ const Home = () => {
     const navigate = useNavigate();
   
     useEffect(() => {
-      fetch("http://localhost:5000/artifacts")
+      fetch("https://a-11-server-site.vercel.app/artifacts")
         .then((res) => res.json())
         .then((data) => setArtifacts(data))
         .catch((error) => console.error(error));
