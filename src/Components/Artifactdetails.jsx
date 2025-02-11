@@ -7,14 +7,14 @@ const ArtifactDetails = () => {
   const [artifact, setArtifact] = useState(null);
 
   useEffect(() => {
-    fetch(`https://a-11-server-site.vercel.app/artifacts/${id}`)
+    fetch(`http://localhost:5000/artifacts/${id}`)
       .then((res) => res.json())
       .then((data) => setArtifact(data))
       .catch((error) => console.error(error));
   }, [id]);
 
   const handleLike = () => {
-    fetch(`https://a-11-server-site.vercel.app/artifacts/${id}/like`, {
+    fetch(`http://localhost:5000/artifacts/${id}/like`, {
       method: "PATCH",
     })
       .then(() => {

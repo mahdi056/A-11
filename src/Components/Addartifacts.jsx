@@ -43,7 +43,7 @@ const AddArtifact = () => {
 
         const artifactData = { ...formData, userId: userid }; 
       
-        const response = await fetch("https://a-11-server-site.vercel.app/add-artifact", {
+        const response = await fetch("http://localhost:5000/add-artifact", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -93,7 +93,7 @@ const AddArtifact = () => {
                         className="input input-bordered w-full"
                     />
                 </div>
-                <div className="mb-4">
+                {/* <div className="mb-4">
                     <label className="block font-bold mb-2">Artifact Image (URL)</label>
                     <input
                         type="url"
@@ -101,6 +101,17 @@ const AddArtifact = () => {
                         value={formData.image}
                         onChange={handleChange}
                         required
+                        className="input input-bordered w-full"
+                    />
+                </div> */}
+                <div className="mb-4">
+                    <label className="block font-bold mb-2">Artifact Image (URL)</label>
+                    <input
+                        type="url"
+                        name="image"
+                        value={formData.image}
+                        onChange={handleChange}
+                        placeholder="If you don't skip it"
                         className="input input-bordered w-full"
                     />
                 </div>

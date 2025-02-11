@@ -15,6 +15,7 @@ const Footer = () => {
                             We are dedicated to preserving history by showcasing artifacts that tell the stories of ancient civilizations. 
                             Join us on a journey to explore and celebrate the wonders of the past.
                         </p>
+                        <p className="text-gray-200 mt-2">Email: ahnafmahdi12@gmail.com</p>
                     </div>
 
                    

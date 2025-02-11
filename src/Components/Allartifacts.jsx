@@ -11,7 +11,7 @@ const AllArtifacts = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("https://a-11-server-site.vercel.app/artifacts")
+    fetch("http://localhost:5000/artifacts")
       .then((res) => res.json())
       .then((data) => setArtifacts(data))
       .catch((error) => console.error(error));

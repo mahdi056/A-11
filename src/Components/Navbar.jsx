@@ -7,6 +7,7 @@ import { AuthContext } from "./Authprovider";
 const Navbar = () => {
 
     const {user} = useContext(AuthContext);
+
     return (
         <div className="space-x-4 flex flex-col md:block">
 
@@ -15,6 +16,8 @@ const Navbar = () => {
             {
                 user &&  <NavLink to="/addartifacts">Add Artifacts</NavLink>
             }
+
+            <NavLink to='/about'>About Us</NavLink>
             
            
            

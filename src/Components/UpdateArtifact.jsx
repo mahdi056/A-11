@@ -33,7 +33,7 @@ const UpdateArtifact = () => {
 
     try {
       const response = await axios.put(
-        `https://a-11-server-site.vercel.app/update-artifact/${id}`,
+        `http://localhost:5000/update-artifact/${id}`,
         formData
       );
       if (response.status === 200) {

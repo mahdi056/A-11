@@ -15,7 +15,7 @@ const MyArtifacts = () => {
   useEffect(() => {
     const fetchArtifacts = async () => {
       try {
-        const response = await axios.get(`https://a-11-server-site.vercel.app/my-artifacts`, {
+        const response = await axios.get(`http://localhost:5000/my-artifacts`, {
           params: { userId: user.uid },
         });
         setArtifacts(response.data);
@@ -59,7 +59,7 @@ const MyArtifacts = () => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          await axios.delete(`https://a-11-server-site.vercel.app/delete-artifact/${artifactId}`, {
+          await axios.delete(`http://localhost:5000/delete-artifact/${artifactId}`, {
             data: { userId },
           });
 

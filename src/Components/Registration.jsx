@@ -119,6 +119,7 @@ const Registration = () => {
                             </label>
                             <input name="photourl" type="text" placeholder="Photo-Url" className="input input-bordered" required />
                         </div>
+                        
 
                         <div className="form-control">
                             <label className="label">
