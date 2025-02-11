@@ -4,7 +4,7 @@ import { FaUserAlt } from "react-icons/fa";
 import { FiAlignJustify } from "react-icons/fi";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "./Authprovider";
-import { BsCheckLg } from "react-icons/bs";
+
 
 const Header = () => {
 
