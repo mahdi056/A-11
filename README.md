@@ -14,19 +14,14 @@
 #Technology used
 ### React, Firebase, tailwind, Mongodb
 
-<<<<<<< HEAD
+
 # npm package
 ### dotenv,cors
-#Steps to Run the Project Locally
+# Steps to Run the Project Locally
 - git clone https://github.com/mahdi056/A-11.git
 - npm install
 - npm run dev
-=======
-#Key Features
 
-###Key features include artifact browsing, detailed views, like/dislike interactions, user authentication, and management of user-contributed artifacts.
 
-#npm package
 
-###dotenv,cors 
->>>>>>> 75dec90 (about us)
+

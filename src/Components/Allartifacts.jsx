@@ -7,7 +7,8 @@ import "react-toastify/dist/ReactToastify.css";
 const AllArtifacts = () => {
   const { user } = useContext(AuthContext);
   const [artifacts, setArtifacts] = useState([]);
-  const [searchQuery, setSearchQuery] = useState(""); // Added search query state
+  const [searchQuery, setSearchQuery] = useState("");
+  const [sortOrder, setSortOrder] = useState("desc"); 
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -21,10 +22,15 @@ const AllArtifacts = () => {
     document.title = "All Artifacts";
   }, []);
 
-  // Filtered artifacts based on search query
+  
   const filteredArtifacts = artifacts.filter((artifact) =>
     artifact.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
+
+  // Sorting artifacts based on the selected sort order
+  const sortedArtifacts = filteredArtifacts.sort((a, b) => {
+    return sortOrder === "desc" ? b.likeCount - a.likeCount : a.likeCount - b.likeCount;
+  });
 
   return (
     <div>
@@ -43,9 +49,25 @@ const AllArtifacts = () => {
           />
         </div>
 
-        {filteredArtifacts.length > 0 ? (
+        {/* Sort buttons */}
+        <div className="flex justify-center mb-6">
+          <button
+            className="btn btn-outline btn-info mx-2"
+            onClick={() => setSortOrder("asc")}
+          >
+            Sort by Ascending Order
+          </button>
+          <button
+            className="btn btn-outline btn-info mx-2"
+            onClick={() => setSortOrder("desc")}
+          >
+            Sort by Descending Order
+          </button>
+        </div>
+
+        {sortedArtifacts.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredArtifacts.map((artifact) => (
+            {sortedArtifacts.map((artifact) => (
               <div
                 key={artifact._id}
                 className="p-4 bg-white shadow-lg shadow-gray-600 rounded-lg"
