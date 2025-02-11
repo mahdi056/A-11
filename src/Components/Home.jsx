@@ -2,7 +2,7 @@ import banner1 from "../assets/banner1.webp";
 import banner2 from "../assets/banner2.webp";
 import banner3 from "../assets/banner3.jpg";
 import { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "./Authprovider";
 import { useEffect, useState } from "react";
 import Review from "./Review";
@@ -31,7 +31,7 @@ const Home = () => {
 
     return (
         <div className="mt-8">
-            
+
 
 
             {/* Slider */}
@@ -60,6 +60,19 @@ const Home = () => {
                         </div>
                     </div>
                 </div>
+            </div>
+            {/* Artifacts */}
+
+            <div className="p-6 bg-gray-100">
+                <h1 className="text-3xl text-center font-bold mb-8">About Artifacts</h1>
+                <h2 className="font-bold mb-4">What are Artifacts?</h2>
+                <p className="mb-4">
+                    Artifacts are physical items that hold significant historical, cultural, or scientific value. These objects are typically preserved and studied to understand the past, cultures, or specific events. In the context of Artifact Atlas, we showcase various artifacts from around the world, offering users a chance to explore and learn about their rich histories.
+                </p>
+                <h3 className="font-semibold mb-2">Why are Artifacts Important?</h3>
+                <p>
+                    Artifacts offer valuable insights into the life, technology, and beliefs of past civilizations. They help historians, archaeologists, and researchers better understand the evolution of humanity and the events that shaped the world. By studying artifacts, we can preserve history for future generations and learn important lessons.
+                </p>
             </div>
 
             {/* Featured Artifacts */}
@@ -112,6 +125,7 @@ const Home = () => {
                     Our mission is to preserve history and bring the stories of ancient civilizations to life.
                     Explore artifacts from around the world and gain insight into our shared cultural heritage.
                 </p>
+                <div><NavLink to='/about'><button className="btn btn-outline btn-info">See Details</button></NavLink></div>
             </div>
 
             {/* User Testimonials Section */}
