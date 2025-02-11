@@ -22,6 +22,7 @@ import MyArtifacts from './Components/MyArtifacts';
 import UpdateArtifact from './Components/UpdateArtifact';
 import Review from './Components/Review';
 import About from './Components/About';
+import Contact from './Components/Contact';
 
 const router = createBrowserRouter([
   {
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
       {
         path: '/about',
         element: <About></About>
+      },
+      {
+        path: '/contact',
+        element: <Contact></Contact>
       },
       {
         path: '/addartifacts',

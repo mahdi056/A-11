@@ -21,7 +21,7 @@ const Header = () => {
     };
 
     return (
-        <div className="mt-4 w-4/5 flex justify-between mx-auto">
+        <div className="mt-4 flex justify-between items-center mx-auto bg-white shadow-md py-2 px-4 sticky top-0 z-10">
 
             <div className="text-2xl font-bold text-blue-500 hidden md:block">
                 Artifact Atlas
@@ -29,15 +29,21 @@ const Header = () => {
 
             <div className="md:hidden" >
                 <FiAlignJustify onClick={toggleMenu} className="cursor-pointer text-sm"></FiAlignJustify>
-           
-           </div>
 
-
-
-            <div className={`${menuOpen ? 'flex border-2 lg:border-0' : 'hidden'} md:block`}>
-                <Navbar></Navbar>
             </div>
-           
+
+
+
+            {/* <div className={`${menuOpen ? 'flex border-2 lg:border-0' : 'hidden'} md:block`}>
+                <Navbar className='sticky top-0'></Navbar>
+            </div> */}
+
+            <div className={`${menuOpen ? 'flex border-2 lg:border-0' : 'hidden md:block'}`}>
+            
+                    <Navbar></Navbar>
+               
+            </div>
+
 
             <div className="flex gap-x-2">
                 {loading ? (

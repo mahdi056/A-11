@@ -18,6 +18,7 @@ const Navbar = () => {
             }
 
             <NavLink to='/about'>About Us</NavLink>
+            <NavLink to='/contact'>Contact Us</NavLink>
             
            
            
