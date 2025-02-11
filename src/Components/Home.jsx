@@ -12,9 +12,7 @@ import Review from "./Review";
 const Home = () => {
 
     const { user } = useContext(AuthContext);
-    // const auth = getAuth();
-    // const users = auth.currentUser;
-    // console.log(users.uid);
+   
     const [artifacts, setArtifacts] = useState([]);
     const navigate = useNavigate();
 
@@ -63,7 +61,7 @@ const Home = () => {
             </div>
             {/* Artifacts */}
 
-            <div className="p-6 bg-gray-100">
+            <div className="p-6 bg-gray-100 mt-12">
                 <h1 className="text-3xl text-center font-bold mb-8">About Artifacts</h1>
                 <h2 className="font-bold mb-4">What are Artifacts?</h2>
                 <p className="mb-4">
@@ -76,7 +74,7 @@ const Home = () => {
             </div>
 
             {/* Featured Artifacts */}
-            <div className="p-8">
+            <div className="p-8 mt-12">
                 <h2 className="text-3xl font-bold mb-4 text-center">Featured Artifacts</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {artifacts.map((artifact) => (
@@ -119,7 +117,7 @@ const Home = () => {
             </div>
 
             {/* About Us Section */}
-            <div className="mt-16 px-4 w-4/5 mx-auto text-center shadow-2xl shadow-gray-400">
+            <div className="mt-12 px-4 w-4/5 mx-auto text-center shadow-2xl shadow-gray-400">
                 <h2 className="text-4xl font-bold mb-4 text-blue-500">About Us</h2>
                 <p className="text-gray-700 text-lg">
                     Our mission is to preserve history and bring the stories of ancient civilizations to life.
@@ -129,7 +127,7 @@ const Home = () => {
             </div>
 
             {/* User Testimonials Section */}
-            <div className="mt-16 px-4 w-4/5 mx-auto">
+            <div className="mt-12 px-4 w-4/5 mx-auto">
                 <h2 className="text-4xl font-bold text-center mb-6 text-blue-500 ">User Testimonials</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 shadow-2xl">
                     <div className="p-4 bg-white shadow-md rounded-lg">
